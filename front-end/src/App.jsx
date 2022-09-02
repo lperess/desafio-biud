@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Begin from './pages/Begin';
+import Registration from './pages/Steps';
 
 function App() {
   return (
@@ -10,11 +11,7 @@ function App() {
 
         <Route
           path="/registration"
-          element={(
-            <section style={{ padding: '1rem' }}>
-              <p>Registration Page</p>
-            </section>
-            )}
+          element={<Registration />}
         />
 
         <Route
