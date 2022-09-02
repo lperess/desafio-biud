@@ -1,8 +1,11 @@
 import React from 'react';
-import './style.css';
+import './styles.css';
+import { useNavigate } from 'react-router-dom';
 import logo from './icon-biud.svg';
 
 function Begin() {
+  const navigate = useNavigate();
+
   return (
     <main>
       <section className="bg" />
@@ -17,6 +20,7 @@ function Begin() {
         <button
           type="button"
           className="start-btn"
+          onClick={() => navigate('/registration')}
         >
           <span>Começar</span>
         </button>
