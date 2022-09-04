@@ -7,7 +7,10 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Begin />} />
+        <Route
+          path="/"
+          element={<Begin />}
+        />
 
         <Route
           path="/registration"
