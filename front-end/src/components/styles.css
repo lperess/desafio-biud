@@ -1,0 +1,97 @@
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 350px;
+  margin: auto;
+}
+
+.emoji {
+  margin-bottom: 20px;
+}
+
+.text {
+  font-size: 1.2rem;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  margin-top: -15px;
+}
+
+.title {
+  color: #d81656;
+  font-size: 1.2rem;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.sub-title {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 400;
+  font-size: 0.69rem;
+  margin: -10px 0 20px 0;
+}
+
+.name-input {
+  margin-bottom: 15px;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid lightgray;
+  border-radius: 8px;
+}
+
+.base-button {
+  background-color: #d81656;
+  border: none;
+  color: #fff;
+  padding: 10px;
+  width: 100%;
+  border-radius: 20px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.options-btn {
+  margin-bottom: 10px;
+}
+
+.recommendation-btn {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  border-radius: 15px;
+  padding: 10px 15px;
+  text-align: left;
+}
+
+.next-btn {
+  box-shadow: 0 5px 16px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 10px;
+  opacity: 0.9;
+  transition: 0.3s;
+}
+
+.next-btn:hover {
+  opacity: 1;
+}
+
+.btn-span {
+  margin-left: 8px;
+  width: 200px;
+}
+
+.finish-btn {
+  border: none;
+  background-color: transparent;
+  font-family: 'Outfit', sans-serif;
+  margin-top: 20px;
+  font-size: 0.8rem;
+  align-self: center;
+}
+
+.finish-btn:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
