@@ -106,3 +106,20 @@
     opacity: 1;
   }
 }
+
+@media screen and (max-width: 340px) {
+  .heading {
+    font-size: 1.4rem;
+    width: 160px;
+  }
+
+  .start-btn {
+    width: 150px;
+  }
+}
+
+@media screen and (max-height: 650px) and (min-width: 700px) {
+  .container {
+    top: 12%;
+  }
+}
