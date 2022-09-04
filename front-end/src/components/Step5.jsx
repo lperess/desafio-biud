@@ -1,15 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Fade } from '@mui/material';
 import smartphone from '../images/smartphone.png';
 import './styles.css';
 
 function Step5({ setStep, wpp, setWpp }) {
-  const enterHandler = (e) => {
-    if (e.key === 'Enter') {
+  const [invalidNumber, setInvalidNumber] = useState(false);
+
+  const validateNumber = () => {
+    if (wpp.length < 11) {
+      setInvalidNumber(true);
+    } else {
       setStep(6);
     }
   };
+
+  const enterHandler = (e) => {
+    if (e.key === 'Enter') {
+      validateNumber();
+    }
+  };
+
+  const invalidNumberElement = (
+    <span className="sub-title">
+      Digite o número com DDD
+    </span>
+  );
 
   return (
     <Fade in>
@@ -43,9 +59,11 @@ function Step5({ setStep, wpp, setWpp }) {
           onKeyDown={enterHandler}
         />
 
+        {invalidNumber && invalidNumberElement}
+
         <button
           type="button"
-          onClick={() => setStep(6)}
+          onClick={validateNumber}
           className="base-button next-btn"
         >
           Avançar
