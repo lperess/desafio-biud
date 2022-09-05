@@ -1,7 +1,8 @@
-import { screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import renderWithRouter from '../renderWithRouter';
 import userEvent from '@testing-library/user-event';
 import Registration from '../pages/Registration';
+import Step3 from '../components/Step3';
 
 describe('Teste do componente Registration', () => {
   jest.setTimeout(10000);
@@ -44,7 +45,7 @@ describe('Teste do componente Registration', () => {
     expect(greeting).toBeInTheDocument();
   });
 
-  it('Depois de 5s deve renderizar o Step3', async () => {
+  it('Deve renderizar o Step3, e o Step4 corretamente', async () => {
     renderWithRouter(<Registration />);
 
     const nameInput = screen.getByRole('textbox');
@@ -63,5 +64,15 @@ describe('Teste do componente Registration', () => {
 
     expect(askBusiness).toBeInTheDocument();
     expect(options.length).toBe(3);
+
+    userEvent.click(options[2]);
+
+    const niceText = screen.getByText('Legal, Lucas!');
+    const paragraph = screen.getByText(
+      /impactar nos resultados da sua loja de roupas./i
+    );
+
+    expect(niceText).toBeInTheDocument();
+    expect(paragraph).toBeInTheDocument();
   });
 });
