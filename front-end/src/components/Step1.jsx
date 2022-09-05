@@ -41,8 +41,6 @@ function Step1({ setStep, name, setName }) {
 
         <input
           type="text"
-          name=""
-          id=""
           value={name}
           className="name-input"
           onChange={(e) => setName(e.target.value)}
