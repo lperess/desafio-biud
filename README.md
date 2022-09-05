@@ -12,4 +12,4 @@
 
 ### Teste
 <li>No diretório do front-end, execute o comando <code>npm test</code></li>
-<li>Nas opções que vão ser oferecidas, aperte 'a'</li>
+<li>Nas opções que vão ser oferecidas, digite 'a'</li>
