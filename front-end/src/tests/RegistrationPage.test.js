@@ -1,11 +1,10 @@
-import { render, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 import renderWithRouter from '../renderWithRouter';
 import userEvent from '@testing-library/user-event';
 import Registration from '../pages/Registration';
-import Step3 from '../components/Step3';
 
 describe('Teste do componente Registration', () => {
-  jest.setTimeout(10000);
+  jest.setTimeout(20000);
 
   it('Deve ter um paragraph', () => {
     renderWithRouter(<Registration />);
@@ -45,8 +44,8 @@ describe('Teste do componente Registration', () => {
     expect(greeting).toBeInTheDocument();
   });
 
-  it('Deve renderizar o Step3, e o Step4 corretamente', async () => {
-    renderWithRouter(<Registration />);
+  it('Testando todo o fluxo de cadastro', async () => {
+    const { history } = renderWithRouter(<Registration />);
 
     const nameInput = screen.getByRole('textbox');
     userEvent.type(nameInput, 'Lucas');
@@ -74,5 +73,38 @@ describe('Teste do componente Registration', () => {
 
     expect(niceText).toBeInTheDocument();
     expect(paragraph).toBeInTheDocument();
+
+    const titleWppPage = await screen.findByText(
+      /essa experiência acontece/i,
+      {},
+      { timeout: 7000 }
+    );
+    expect(titleWppPage).toBeInTheDocument();
+
+    const wppInput = screen.getByRole('textbox');
+    expect(wppInput).toBeInTheDocument();
+
+    const nextBtn2 = screen.getByRole('button');
+    expect(nextBtn2).toBeInTheDocument();
+
+    userEvent.type(wppInput, '61999031412');
+    userEvent.click(nextBtn2);
+
+    const doneTitle = screen.getByText('Prontinho, Lucas!');
+    expect(doneTitle).toBeInTheDocument();
+
+    const doneText = screen.getByText(/vai fazer sua loja de roupas decolar/i);
+    expect(doneText).toBeInTheDocument();
+
+    const endBtn = screen.getByRole('button', { name: 'Finalizar' });
+    expect(endBtn).toBeInTheDocument();
+
+    userEvent.click(endBtn);
+
+    const {
+      location: { pathname },
+    } = history;
+
+    expect(pathname).toBe('/');
   });
 });
